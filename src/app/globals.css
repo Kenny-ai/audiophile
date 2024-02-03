@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -30,4 +30,12 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+} */
+:root {
+  font-size: 0.875rem;
+}
+
+.cart-hover:hover {
+  filter: brightness(0) saturate(100%) invert(78%) sepia(47%) saturate(4603%)
+    hue-rotate(328deg) brightness(92%) contrast(83%);
 }
