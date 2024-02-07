@@ -39,3 +39,19 @@ body {
   filter: brightness(0) saturate(100%) invert(78%) sepia(47%) saturate(4603%)
     hue-rotate(328deg) brightness(92%) contrast(83%);
 }
+
+.hero {
+  /* background-image: url("../public/assets/home/mobile/image-header.jpg"); */
+  background-image: url("/assets/home/mobile/image-header.jpg");
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

@@ -12,6 +12,17 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "home-bg-mobile": "url('/assets/home/mobile/image-header.jpg')",
+        "home-bg-tablet": "url('/assets/home/tablet/image-header.jpg')",
+        "home-bg-desktop": "url('/assets/home/desktop/image-hero.jpg')",
+        pattern: "url('/assets/home/desktop/pattern-circles.svg')",
+        "mobile-bg-zx7": "url('/assets/home/mobile/image-speaker-zx7.jpg')",
+        "tablet-bg-zx7": "url('/assets/home/tablet/image-speaker-zx7.jpg')",
+        "desktop-bg-zx7": "url('/assets/home/desktop/image-speaker-zx7.jpg')",
+        "desktop-bg-yx1": "url('/assets/home/desktop/image-earphones-yx1.jpg')",
+      },
+      backgroundPosition: {
+        center: "center -90px",
       },
       colors: {
         "clr-dark": "#000000",
@@ -42,6 +53,9 @@ const config: Config = {
       screens: {
         phones: "376px",
       },
+      gap: {
+        test: "6rem"
+      }
     },
   },
   plugins: [],
