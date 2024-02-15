@@ -2,14 +2,15 @@
 "use client";
 import { CartState, ProductType } from "@/utils/types";
 import React, { useState } from "react";
-import Button from "../Button";
+import Button from "../shared/Button";
 import CategoriesLayout from "@/layouts/CategoriesLayout";
 import { useRouter } from "next/navigation";
-import Quantity from "../Quantity";
+import Quantity from "../shared/Quantity";
 import Gallery from "./Gallery";
 import Others from "./Others";
 import { addToCart, incrementQuantity } from "@/lib/features/cartSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { toast } from "react-toastify";
 
 interface Props {
   product: ProductType;
@@ -33,7 +34,7 @@ const Product = ({ product }: Props) => {
   const goBack = () => {
     router.back();
   };
-  
+
   const dispatch = useAppDispatch();
 
   const cart = useAppSelector((state) => state.cart);
@@ -58,6 +59,9 @@ const Product = ({ product }: Props) => {
   const addItemToCart = () => {
     if (containsObject(cartItem, cart)) {
       dispatch(incrementQuantity({ id: cartItem.id, amount: quantity }));
+      toast.success(`${product.name} has been added to your cart.`, {
+        position: "top-center",
+      });
     } else {
       dispatch(addToCart(cartItem));
     }

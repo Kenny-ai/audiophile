@@ -2,7 +2,7 @@
 import { Image } from "@/utils/types";
 import Link from "next/link";
 import React from "react";
-import Button from "../Button";
+import Button from "../shared/Button";
 
 interface Props {
   slug: string;

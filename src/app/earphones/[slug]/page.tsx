@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import React from "react";
-import Product from "@/components/shared/product/Product";
+import Product from "@/components/product/Product";
 import { getProduct, getSlugs } from "@/lib/products/products";
 
 export interface Params {
