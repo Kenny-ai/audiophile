@@ -1,8 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-"use client";
 import { CartState, ProductType } from "@/utils/types";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "../Button";
 import CategoriesLayout from "@/layouts/CategoriesLayout";
 import { useRouter } from "next/navigation";
@@ -19,8 +18,6 @@ interface Props {
 const Product = ({ product }: Props) => {
   const router = useRouter();
 
-  const [features, setFeatures] = useState<string[]>([]);
-
   const [quantity, setQuantity] = useState(1);
 
   const increaseQuantity = () => {
@@ -31,14 +28,12 @@ const Product = ({ product }: Props) => {
     quantity > 0 && setQuantity(() => quantity - 1);
   };
 
-  useEffect(() => {
-    const splitFeatures = product.features.split("\n\n");
-    setFeatures(splitFeatures);
-  }, [product.features]);
+  const [features1, features2] = product.features.split("\n\n");
 
   const goBack = () => {
     router.back();
   };
+  
   const dispatch = useAppDispatch();
 
   const cart = useAppSelector((state) => state.cart);
@@ -130,10 +125,10 @@ const Product = ({ product }: Props) => {
               Features
             </h3>
             <p className="text-clr-dark md:w-fit font-fw-bold opacity-70 tracking-wider leading-7 mb-8">
-              {features[0]}
+              {features1}
             </p>
             <p className="text-clr-dark md:w-fit font-fw-bold opacity-70 tracking-wider leading-7 mb-8">
-              {features[1]}
+              {features2}
             </p>
           </div>
 
