@@ -1,24 +1,19 @@
 import React from "react";
 import AppLayout from "./AppLayout";
-import CategoryHeader from "@/components/CategoryHeader";
-import SectionFour from "@/components/SectionFour";
-import SectionTwo from "@/components/SectionTwo";
+import SectionFour from "@/components/home/SectionFour";
+import SectionTwo from "@/components/home/SectionTwo";
 
 interface Props {
   children: React.ReactNode;
-  title: string;
 }
 
-const CategoriesLayout = ({ children, title }: Props) => {
+const CategoriesLayout = ({ children }: Props) => {
   return (
     <AppLayout>
-      <div className="flex flex-col gap-32">
-        <CategoryHeader title={title} />
+      <div className="flex flex-col gap-32 pb-24">
         {children}
         <SectionTwo />
-        <div className="mb-28">
-          <SectionFour />
-        </div>
+        <SectionFour />
       </div>
     </AppLayout>
   );
