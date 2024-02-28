@@ -8,6 +8,7 @@ import { getTotal } from "@/lib/products/products";
 import { toggleCartModal } from "@/lib/features/cartModalSlice";
 import CartQuantity from "./CartQuantity";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 type Ref = HTMLDivElement;
 
@@ -31,7 +32,7 @@ const CartModal = forwardRef<Ref>(function CartModal(props, ref) {
     if (cartLength > 0) {
       router.push("/checkout");
     } else {
-      alert("Your cart is empty");
+      toast.warning("Your cart is empty");
     }
   };
 
