@@ -12,7 +12,9 @@ interface Props {
 }
 
 const AppLayout = ({ children }: Props) => {
-  const cartModal = useAppSelector((state) => state.cartModal);
+  const cartModal = useAppSelector(
+    (state) => state.persistedReducers.cartModal
+  );
 
   const dispatch = useAppDispatch();
 

@@ -4,7 +4,7 @@ import { useAppSelector } from "@/lib/hooks";
 import { getTotal } from "@/lib/products/products";
 
 const CheckoutSummary = () => {
-  const cart = useAppSelector((state) => state.cart);
+  const cart = useAppSelector((state) => state.persistedReducers.cart);
 
   const total = getTotal(cart);
   const formattedtotal = total.toLocaleString();

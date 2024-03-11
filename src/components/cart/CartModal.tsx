@@ -13,7 +13,7 @@ import { toast } from "react-toastify";
 type Ref = HTMLDivElement;
 
 const CartModal = forwardRef<Ref>(function CartModal(props, ref) {
-  const cart = useAppSelector((state) => state.cart);
+  const cart = useAppSelector((state) => state.persistedReducers.cart);
 
   const dispatch = useAppDispatch();
 

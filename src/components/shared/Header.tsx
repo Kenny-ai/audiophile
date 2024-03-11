@@ -11,7 +11,7 @@ const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const dispatch = useAppDispatch();
-  const cart = useAppSelector((state) => state.cart);
+  const cart = useAppSelector((state) => state.persistedReducers.cart);
   const cartLength = cart.length;
 
   const openCartModal = () => {
