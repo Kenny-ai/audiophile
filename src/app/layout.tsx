@@ -21,10 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={manrope.className}>
         <StoreProvider>
-          <ToastContainer
-            pauseOnFocusLoss={false}
-            autoClose={3000}
-          />
+          <ToastContainer pauseOnFocusLoss={false} autoClose={3000} />
           {children}
         </StoreProvider>
       </body>
