@@ -17,7 +17,7 @@ const Gallery = ({ gallery }: Props) => {
           <img
             src={image.mobile}
             alt="best-gear"
-            className="rounded-lg md:hidde"
+            className="rounded-lg w-full h-full"
           />
         </div>
       ))}

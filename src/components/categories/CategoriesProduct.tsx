@@ -28,9 +28,9 @@ const CategoriesProduct = ({
       <div
         className={`${
           index % 2 === 0 ? `md:flex-row-reverse` : `md:flex-row`
-        } flex flex-col items-center gap-6 w-full  md:justify-between`}
+        } flex flex-col items-center gap-6 w-full md:justify-between`}
       >
-        <div className="shadow-md">
+        <div className="shadow-md lg:w-2/5">
           <img
             src={image.mobile}
             alt="best-gear"
@@ -44,11 +44,11 @@ const CategoriesProduct = ({
           <img
             src={image.desktop}
             alt="best-gear"
-            className="rounded-lg hidden md:flex w-[400px]"
+            className="rounded-lg hidden md:flex w-full"
           />
         </div>
 
-        <div className="w-full max-w-[600px] h-full sm:px-12 md:px-0 rounded-lg flex flex-col justify-center items-center md:items-start text-center md:text-left">
+        <div className="w-full lg:w-1/2 h-full sm:px-12 md:px-0 rounded-lg flex flex-col justify-center items-center md:items-start text-center md:text-left">
           {isNew ? (
             <p className="tracking-[.5em] text-clr-lighter-accent text-xl mb-6">
               NEW PRODUCT
@@ -59,7 +59,7 @@ const CategoriesProduct = ({
           <h3 className="uppercase font-bold text-3xl md:text-5xl mb-6 tracking-wider">
             {productName}
           </h3>
-          <p className="text-clr-dark md:w-fit font-fw-bold opacity-70 tracking-wider leading-7 mb-8">
+          <p className="text-clr-dark md:w-fit font-fw-bold opacity-70 tracking-wider leading-[2.3rem] mb-8 text-lg">
             {description}
           </p>
           <Link href={`/${category}/${slug}`}>

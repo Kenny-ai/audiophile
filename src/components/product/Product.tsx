@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import { CartState, ProductType } from "@/utils/types";
+import { CartState, Product } from "@/utils/types";
 import React, { useState } from "react";
 import Button from "../shared/Button";
 import CategoriesLayout from "@/layouts/CategoriesLayout";
@@ -13,7 +13,7 @@ import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { toast } from "react-toastify";
 
 interface Props {
-  product: ProductType;
+  product: Product;
 }
 
 const Product = ({ product }: Props) => {
@@ -37,7 +37,7 @@ const Product = ({ product }: Props) => {
 
   const dispatch = useAppDispatch();
 
-  const cart = useAppSelector((state) => state.cart);
+  const cart = useAppSelector((state) => state.persistedReducers.cart);
 
   const cartItem = {
     id: product.id,
@@ -80,7 +80,7 @@ const Product = ({ product }: Props) => {
         <div
           className={`flex flex-col md:flex-row items-center gap-6 md:gap-16 w-full md:justify-between`}
         >
-          <div className="">
+          <div className="shadow-md lg:w-2/5">
             <img
               src={product.image.mobile}
               alt="best-gear"
@@ -94,15 +94,15 @@ const Product = ({ product }: Props) => {
             <img
               src={product.image.desktop}
               alt="best-gear"
-              className="rounded-lg hidden md:flex"
+              className="rounded-lg hidden md:flex w-full"
             />
           </div>
 
-          <div className="w-full max-w-[600px] h-full sm:px-12 md:px-0 rounded-lg flex flex-col justify-center items-center md:items-start text-center md:text-left">
+          <div className="w-full lg:w-1/2 h-full sm:px-12 md:px-0 rounded-lg flex flex-col justify-center items-center md:items-start text-center md:text-left">
             <h3 className="uppercase font-bold text-3xl lg:text-5xl mb-6 tracking-wider">
               {product.name}
             </h3>
-            <p className="text-clr-dark md:w-fit font-fw-bold opacity-70 tracking-wider leading-7 mb-8">
+            <p className="text-clr-dark md:w-fit font-fw-bold opacity-70 tracking-wider leading-7 mb-8 text-lg">
               {product.description}
             </p>
 
