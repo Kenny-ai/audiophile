@@ -1,5 +1,5 @@
-export interface Product {
-  id: number;
+export interface ProductType {
+  _id: string;
   slug: string;
   name: string;
   image: Image;
@@ -11,7 +11,7 @@ export interface Product {
   features: string;
   includes: Includes[];
   gallery: Image[];
-  others: Others[];
+  others: OthersType[];
 }
 
 interface Includes {
@@ -25,14 +25,15 @@ export interface Image {
   desktop: string;
 }
 
-export interface Others {
+export interface OthersType {
+  _id: string;
   slug: string;
   name: string;
   image: Image;
 }
 
 export interface CartState {
-  id: number;
+  _id: string;
   name: string;
   image: string;
   price: number;

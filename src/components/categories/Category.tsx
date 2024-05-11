@@ -4,7 +4,7 @@ import React from "react";
 
 interface Props {
   category: {
-    _id: number;
+    _id: string;
     slug: string;
     category: string;
     categoryImage: {

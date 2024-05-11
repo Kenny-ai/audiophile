@@ -4,11 +4,11 @@ import Button from "../shared/Button";
 import Link from "next/link";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { clearCart } from "@/lib/features/cartSlice";
-import { getTotal } from "@/lib/products/products";
+import { getTotal } from "@/utils/products";
 import { toggleCartModal } from "@/lib/features/cartModalSlice";
 import CartQuantity from "./CartQuantity";
 import { useRouter } from "next/navigation";
-import { toast } from "react-toastify";
+import { Notify } from "@/utils/toast";
 
 type Ref = HTMLDivElement;
 
@@ -32,7 +32,7 @@ const CartModal = forwardRef<Ref>(function CartModal(props, ref) {
     if (cartLength > 0) {
       router.push("/checkout");
     } else {
-      toast.warning("Your cart is empty");
+      Notify("warning", "Your cart is empty");
     }
   };
 
@@ -65,7 +65,7 @@ const CartModal = forwardRef<Ref>(function CartModal(props, ref) {
           </div>
         ) : (
           cart.map((item) => (
-            <div key={item.id} className="flex items-center justify-between">
+            <div key={item._id} className="flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <img
                   src={item.image}
@@ -77,7 +77,7 @@ const CartModal = forwardRef<Ref>(function CartModal(props, ref) {
                   <p className="text-lg text-gray-400">$ {item.price}</p>
                 </div>
               </div>
-              <CartQuantity id={item.id} quantity={item.quantity} />
+              <CartQuantity _id={item._id} quantity={item.quantity} />
             </div>
           ))
         )}

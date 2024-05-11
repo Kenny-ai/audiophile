@@ -2,6 +2,7 @@
 import CheckoutForm from "@/components/checkout/CheckoutForm";
 import CheckoutSummary from "@/components/checkout/CheckoutSummary";
 import AppLayout from "@/layouts/AppLayout";
+import { Form, Formik } from "formik";
 import { useRouter } from "next/navigation";
 import React from "react";
 
@@ -10,6 +11,24 @@ const Page = () => {
 
   const goBack = () => {
     router.back();
+  };
+
+  const initialValues = {
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    zip: "",
+    city: "",
+    country: "",
+    paymentMethod: "",
+    eNum: "",
+    ePin: "",
+  };
+
+  const handleSubmit = (values: typeof initialValues) => {
+    console.log(values);
+    router.push("/orders");
   };
 
   return (
@@ -21,14 +40,20 @@ const Page = () => {
         >
           Go Back
         </button>
-        <form className="flex flex-col gap-8 xl:flex-row">
-          <div className="xl:w-3/5">
-            <CheckoutForm />
-          </div>
-          <div className="xl:w-2/5">
-            <CheckoutSummary />
-          </div>
-        </form>
+        <Formik
+          initialValues={initialValues}
+          // validationSchema={registerSchema}
+          onSubmit={(values) => handleSubmit(values)}
+        >
+          <Form className="flex flex-col gap-8 xl:flex-row">
+            <div className="xl:w-3/5">
+              <CheckoutForm />
+            </div>
+            <div className="xl:w-2/5">
+              <CheckoutSummary />
+            </div>
+          </Form>
+        </Formik>
       </div>
     </AppLayout>
   );

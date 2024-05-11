@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Image } from "@/utils/types";
 
 interface Props {
+  _id: string;
   slug: string;
   productName: string;
   description: string;
@@ -21,6 +22,7 @@ const CategoriesProduct = ({
   image,
   index,
   category,
+  _id,
   slug,
 }: Props) => {
   return (
@@ -33,17 +35,17 @@ const CategoriesProduct = ({
         <div className="shadow-md lg:w-2/5">
           <img
             src={image.mobile}
-            alt="best-gear"
+            alt={slug}
             className="rounded-lg phones:hidden"
           />
           <img
             src={image.tablet}
-            alt="best-gear"
+            alt={slug}
             className="rounded-lg hidden phones:flex md:hidden"
           />
           <img
             src={image.desktop}
-            alt="best-gear"
+            alt={slug}
             className="rounded-lg hidden md:flex w-full"
           />
         </div>
@@ -62,7 +64,7 @@ const CategoriesProduct = ({
           <p className="text-clr-dark md:w-fit font-fw-bold opacity-70 tracking-wider leading-[2.3rem] mb-8 text-lg">
             {description}
           </p>
-          <Link href={`/${category}/${slug}`}>
+          <Link href={`/${category}/${_id}`}>
             <Button
               className="bg-clr-accent text-white hover:bg-clr-darker-accent"
               title="See Product"

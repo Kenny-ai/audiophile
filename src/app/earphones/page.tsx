@@ -1,8 +1,9 @@
-import CategoriesPage from "@/components/categories/CategoriesPage";
+import Products from "@/components/product/Products";
 import React from "react";
 
-const page = () => {
-  return <CategoriesPage category="earphones" />;
+// used server side rendering
+const Earphones = async () => {
+  return <Products category={"earphones"} />;
 };
 
-export default page;
+export default Earphones;

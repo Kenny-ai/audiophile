@@ -2,7 +2,7 @@ import { CartState } from "@/utils/types";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface IncrementQuantity {
-  id: number;
+  _id: string;
   amount: number;
 }
 
@@ -16,8 +16,8 @@ const cartSlice = createSlice({
       state.push(action.payload);
     },
 
-    removeFromCart: (state, action: PayloadAction<number>) => {
-      const cartItem = state.filter((item) => item.id === action.payload)[0];
+    removeFromCart: (state, action: PayloadAction<string>) => {
+      const cartItem = state.filter((item) => item._id === action.payload)[0];
       state.splice(state.indexOf(cartItem), 1);
     },
 
@@ -27,7 +27,7 @@ const cartSlice = createSlice({
 
     incrementQuantity: (state, action: PayloadAction<IncrementQuantity>) => {
       state.map((product) => {
-        if (product.id === action.payload.id) {
+        if (product._id === action.payload._id) {
           product.quantity += action.payload.amount;
         }
       });
@@ -35,7 +35,7 @@ const cartSlice = createSlice({
 
     decrementQuantity: (state, action: PayloadAction<IncrementQuantity>) => {
       state.map((product) => {
-        if (product.id === action.payload.id) {
+        if (product._id === action.payload._id) {
           product.quantity -= action.payload.amount;
         }
       });

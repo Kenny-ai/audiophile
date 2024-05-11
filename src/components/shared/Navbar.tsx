@@ -1,4 +1,3 @@
-import { getCategories } from "@/lib/products/products";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -6,7 +5,9 @@ import React from "react";
 const Navbar = () => {
   const pathName = usePathname();
 
-  const categories = getCategories();
+  // const categories = getCategories();
+
+  const categories = ["earphones", "headphones", "speakers"];
 
   return (
     <nav className="hidden md:flex justify-between w-3/5 lg:w-[45%]">

@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../shared/Button";
 import { useAppSelector } from "@/lib/hooks";
-import { getTotal } from "@/lib/products/products";
+import { getTotal } from "@/utils/products";
 
 const CheckoutSummary = () => {
   const cart = useAppSelector((state) => state.persistedReducers.cart);

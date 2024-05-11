@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import { CartState, Product } from "@/utils/types";
+import { CartState, ProductType } from "@/utils/types";
 import React, { useState } from "react";
 import Button from "../shared/Button";
 import CategoriesLayout from "@/layouts/CategoriesLayout";
@@ -10,10 +10,10 @@ import Gallery from "./Gallery";
 import Others from "./Others";
 import { addToCart, incrementQuantity } from "@/lib/features/cartSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import { toast } from "react-toastify";
+import { Notify } from "@/utils/toast";
 
 interface Props {
-  product: Product;
+  product: ProductType;
 }
 
 const Product = ({ product }: Props) => {
@@ -40,7 +40,7 @@ const Product = ({ product }: Props) => {
   const cart = useAppSelector((state) => state.persistedReducers.cart);
 
   const cartItem = {
-    id: product.id,
+    _id: product._id,
     name: product.name,
     image: product.image.mobile,
     price: product.price,
@@ -49,7 +49,7 @@ const Product = ({ product }: Props) => {
 
   const containsObject = (obj: CartState, array: CartState[]) => {
     for (let i = 0; i < array.length; i++) {
-      if (array[i].id === obj.id) {
+      if (array[i]._id === obj._id) {
         return true;
       }
     }
@@ -58,8 +58,8 @@ const Product = ({ product }: Props) => {
 
   const addItemToCart = () => {
     if (containsObject(cartItem, cart)) {
-      dispatch(incrementQuantity({ id: cartItem.id, amount: quantity }));
-      toast.success(`${product.name} has been added to your cart.`, {
+      dispatch(incrementQuantity({ _id: cartItem._id, amount: quantity }));
+      Notify("success", `${product.name} has been added to your cart.`, {
         position: "top-center",
       });
     } else {
@@ -83,17 +83,17 @@ const Product = ({ product }: Props) => {
           <div className="shadow-md lg:w-2/5">
             <img
               src={product.image.mobile}
-              alt="best-gear"
+              alt={product.slug}
               className="rounded-lg phones:hidden"
             />
             <img
               src={product.image.tablet}
-              alt="best-gear"
+              alt={product.slug}
               className="rounded-lg hidden phones:flex md:hidden"
             />
             <img
               src={product.image.desktop}
-              alt="best-gear"
+              alt={product.slug}
               className="rounded-lg hidden md:flex w-full"
             />
           </div>

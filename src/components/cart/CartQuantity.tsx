@@ -7,20 +7,20 @@ import { useAppDispatch } from "@/lib/hooks";
 import React from "react";
 
 interface Props {
-  id: number;
+  _id: string;
   quantity: number;
 }
 
-const CartQuantity = ({ id, quantity }: Props) => {
+const CartQuantity = ({ _id, quantity }: Props) => {
   const dispatch = useAppDispatch();
 
   const increaseQuantity = () => {
-    dispatch(incrementQuantity({ id, amount: 1 }));
+    dispatch(incrementQuantity({ _id, amount: 1 }));
   };
 
   const decreaseQuantity = () => {
-    dispatch(decrementQuantity({ id, amount: 1 }));
-    if (quantity === 1) dispatch(removeFromCart(id));
+    dispatch(decrementQuantity({ _id, amount: 1 }));
+    if (quantity === 1) dispatch(removeFromCart(_id));
   };
 
   return (

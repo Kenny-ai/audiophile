@@ -1,8 +1,8 @@
-import CategoriesPage from "@/components/categories/CategoriesPage";
+import Products from "@/components/product/Products";
 import React from "react";
 
 const page = () => {
-  return <CategoriesPage category="headphones" />;
+  return <Products category="headphones" />;
 };
 
 export default page;

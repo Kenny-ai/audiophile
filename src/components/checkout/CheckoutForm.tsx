@@ -1,3 +1,4 @@
+import { Field } from "formik";
 import React from "react";
 
 const CheckoutForm = () => {
@@ -16,11 +17,11 @@ const CheckoutForm = () => {
             <label htmlFor="name" className="mb-2 font-bold">
               Name
             </label>
-            <input
-              required
+            <Field
               autoComplete="name"
               placeholder="Alexei Ward"
               id="name"
+              name="name"
               type="text"
               className="border border-gray-300 py-3 px-4 rounded-lg focus:outline-clr-lighter-accent font-bold"
             />
@@ -30,10 +31,11 @@ const CheckoutForm = () => {
             <label htmlFor="email" className="mb-2 font-bold">
               Email Address
             </label>
-            <input
+            <Field
               autoComplete="email"
               placeholder="alexei@gmail.com"
               id="email"
+              name="email"
               type="email"
               className="border border-gray-300 py-3 px-4 rounded-lg focus:outline-clr-lighter-accent font-bold"
             />
@@ -43,10 +45,11 @@ const CheckoutForm = () => {
             <label htmlFor="phone" className="mb-2 font-bold">
               Phone Number
             </label>
-            <input
+            <Field
               autoComplete="tel"
               placeholder="+1 202-555-0136"
               id="phone"
+              name="phone"
               type="tel"
               className="border border-gray-300 py-3 px-4 rounded-lg focus:outline-clr-lighter-accent font-bold"
             />
@@ -61,10 +64,11 @@ const CheckoutForm = () => {
             <label htmlFor="address" className="mb-2 font-bold">
               Your Address
             </label>
-            <input
+            <Field
               autoComplete="street-address"
               placeholder="1137 Williams Avenue"
               id="address"
+              name="address"
               type="text"
               className="border border-gray-300 py-3 px-4 rounded-lg focus:outline-clr-lighter-accent font-bold"
             />
@@ -74,24 +78,12 @@ const CheckoutForm = () => {
             <label htmlFor="zip" className="mb-2 font-bold">
               ZIP Code
             </label>
-            <input
+            <Field
               autoComplete="postal-code"
               placeholder="10001"
               id="zip"
-              type="text"
-              className="border border-gray-300 py-3 px-4 rounded-lg focus:outline-clr-lighter-accent font-bold"
-            />
-          </div>
-
-          <div className="flex flex-col">
-            <label htmlFor="city" className="mb-2 font-bold">
-              City
-            </label>
-            <input
-              autoComplete="address-level2"
-              placeholder="New York"
-              id="city"
-              type="text"
+              name="zip"
+              type="number"
               className="border border-gray-300 py-3 px-4 rounded-lg focus:outline-clr-lighter-accent font-bold"
             />
           </div>
@@ -100,11 +92,26 @@ const CheckoutForm = () => {
             <label htmlFor="country" className="mb-2 font-bold">
               Country
             </label>
-            <input
+            <Field
               autoComplete="country"
               placeholder="United States"
               id="country"
+              name="country"
               type="country"
+              className="border border-gray-300 py-3 px-4 rounded-lg focus:outline-clr-lighter-accent font-bold"
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label htmlFor="city" className="mb-2 font-bold">
+              City
+            </label>
+            <Field
+              autoComplete="address-level2"
+              placeholder="New York"
+              id="city"
+              name="city"
+              type="text"
               className="border border-gray-300 py-3 px-4 rounded-lg focus:outline-clr-lighter-accent font-bold"
             />
           </div>
@@ -122,7 +129,12 @@ const CheckoutForm = () => {
                 htmlFor="e-money"
                 className="border border-gray-300 py-3 px-4 rounded-lg focus:outline-clr-lighter-accent font-bold flex gap-4 mb-4 cursor-pointer"
               >
-                <input id="e-money" type="radio" required />
+                <Field
+                  id="e-money"
+                  name="paymentMethod"
+                  type="radio"
+                  value="eMoney"
+                />
                 <span>e-Money</span>
               </label>
 
@@ -130,7 +142,7 @@ const CheckoutForm = () => {
                 htmlFor="cod"
                 className="border border-gray-300 py-3 px-4 rounded-lg focus:outline-clr-lighter-accent font-bold flex gap-4 cursor-pointer"
               >
-                <input id="cod" type="radio" />
+                <Field id="cod" name="paymentMethod" type="radio" value="cod" />
                 <span>Cash on Delivery</span>
               </label>
             </div>
@@ -140,10 +152,11 @@ const CheckoutForm = () => {
             <label htmlFor="em-num" className="mb-2 font-bold">
               e-Money Number
             </label>
-            <input
+            <Field
               autoComplete="off"
               placeholder="123456789"
               id="em-num"
+              name="em-num"
               type="number"
               className="border border-gray-300 py-3 px-4 rounded-lg focus:outline-clr-lighter-accent font-bold"
             />
@@ -153,10 +166,11 @@ const CheckoutForm = () => {
             <label htmlFor="em-pin" className="mb-2 font-bold">
               e-Money PIN
             </label>
-            <input
+            <Field
               autoComplete="off"
               placeholder="1234"
               id="em-pin"
+              name="em-pin"
               type="number"
               className="border border-gray-300 py-3 px-4 rounded-lg focus:outline-clr-lighter-accent font-bold"
             />
