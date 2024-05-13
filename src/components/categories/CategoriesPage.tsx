@@ -43,7 +43,6 @@ const CategoriesPage = ({ category }: Props) => {
       {data?.map((product) => (
         <CategoriesProduct
           key={product._id}
-          _id={product._id}
           slug={product.slug}
           index={data.indexOf(product) + 1}
           productName={product.name}

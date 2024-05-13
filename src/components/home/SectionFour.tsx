@@ -8,17 +8,17 @@ const SectionFour = () => {
         <div className="lg:w-2/5">
           <img
             src="/assets/shared/mobile/image-best-gear.jpg"
-            alt="best-gear"
+            alt="man-wearing-headphones"
             className="rounded-lg phones:hidden"
           />
           <img
             src="/assets/shared/tablet/image-best-gear.jpg"
-            alt="best-gear"
+            alt="man-wearing-headphones"
             className="rounded-lg hidden phones:flex lg:hidden"
           />
           <img
             src="/assets/shared/desktop/image-best-gear.jpg"
-            alt="best-gear"
+            alt="man-wearing-headphones"
             className="rounded-lg hidden lg:flex w-full"
           />
         </div>

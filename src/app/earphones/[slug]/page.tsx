@@ -1,25 +1,25 @@
 import { notFound } from "next/navigation";
 import React from "react";
+import { BASE_URL } from "@/utils/constants";
 import Product from "@/components/product/Product";
 import { ProductType } from "@/utils/types";
-import { BASE_URL } from "@/utils/constants";
 
 export interface Params {
   params: {
-    _id: string;
+    slug: string;
   };
 }
 
 export async function generateStaticParams() {
-  const _ids: Params[] = await fetch(`${BASE_URL}products/headphones/ids`)
+  const slugs: Params[] = await fetch(`${BASE_URL}products/earphones/slugs`)
     .then((res) => res.json())
     .then((res) => res.data);
 
-  return _ids;
+  return slugs;
 }
 
-async function getProduct(_id: string) {
-  const product: ProductType = await fetch(`${BASE_URL}products/?_id=${_id}`)
+async function getProduct(slug: string) {
+  const product: ProductType = await fetch(`${BASE_URL}products/?slug=${slug}`)
     .then((res) => res.json())
     .then((res) => res.data);
 
@@ -29,10 +29,10 @@ async function getProduct(_id: string) {
   return product;
 }
 
-const Headphone = async ({ params }: Params) => {
-  const { _id } = params;
+const Earphone = async ({ params }: Params) => {
+  const { slug } = params;
 
-  const product = await getProduct(_id);
+  const product = await getProduct(slug);
 
   if (!product) notFound();
 
@@ -43,4 +43,4 @@ const Headphone = async ({ params }: Params) => {
   );
 };
 
-export default Headphone;
+export default Earphone;

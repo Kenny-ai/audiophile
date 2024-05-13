@@ -37,7 +37,7 @@ const OthersProduct = ({ _id, slug, image, name, category }: Props) => {
         {name}
       </h3>
 
-      <Link href={`/${category}/${_id}`}>
+      <Link href={`/${category}/${slug}`}>
         <Button
           className="bg-clr-accent text-white hover:bg-clr-darker-accent duration-200"
           title="See Product"

@@ -69,7 +69,7 @@ const Products = async ({ category }: { category: string }) => {
               <p className="text-clr-dark md:w-fit font-fw-bold opacity-70 tracking-wider leading-[2.3rem] mb-8 text-lg">
                 {product.description}
               </p>
-              <Link href={`/${category}/${product._id}`}>
+              <Link href={`/${category}/${product.slug}`}>
                 <Button
                   className="bg-clr-accent text-white hover:bg-clr-darker-accent"
                   title="See Product"

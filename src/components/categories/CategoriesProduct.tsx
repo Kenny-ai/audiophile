@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Image } from "@/utils/types";
 
 interface Props {
-  _id: string;
   slug: string;
   productName: string;
   description: string;
@@ -22,7 +21,6 @@ const CategoriesProduct = ({
   image,
   index,
   category,
-  _id,
   slug,
 }: Props) => {
   return (
@@ -64,7 +62,7 @@ const CategoriesProduct = ({
           <p className="text-clr-dark md:w-fit font-fw-bold opacity-70 tracking-wider leading-[2.3rem] mb-8 text-lg">
             {description}
           </p>
-          <Link href={`/${category}/${_id}`}>
+          <Link href={`/${category}/${slug}`}>
             <Button
               className="bg-clr-accent text-white hover:bg-clr-darker-accent"
               title="See Product"

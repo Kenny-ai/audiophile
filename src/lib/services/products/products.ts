@@ -29,7 +29,7 @@ export const productsApi = createApi({
     }),
 
     getProduct: build.query<ProductType, string>({
-      query: (_id) => `/products/?_id=${_id}`,
+      query: (slug) => `/products/?slug=${slug}`,
       transformResponse: (response: ProductRes) => response.data,
     }),
 

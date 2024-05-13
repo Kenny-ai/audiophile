@@ -16,7 +16,7 @@ import { Notify } from "@/utils/toast";
 
 export interface Params {
   params: {
-    _id: string;
+    slug: string;
   };
 }
 
@@ -24,10 +24,10 @@ const Page = ({ params }: Params) => {
   const [getProduct, { data: product, isFetching, isError, error }] =
     useLazyGetProductQuery();
 
-  const { _id } = params;
+  const { slug } = params;
 
   useEffect(() => {
-    getProduct(_id);
+    getProduct(slug);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
