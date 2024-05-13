@@ -10,7 +10,7 @@ export interface ProductType {
   description: string;
   features: string;
   includes: Includes[];
-  gallery: Image[];
+  gallery: GalleryType[];
   others: OthersType[];
 }
 
@@ -23,6 +23,10 @@ export interface Image {
   mobile: string;
   tablet: string;
   desktop: string;
+}
+
+export interface GalleryType extends Image {
+  _id: string;
 }
 
 export interface OthersType {
