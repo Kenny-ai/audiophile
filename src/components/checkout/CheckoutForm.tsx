@@ -1,5 +1,6 @@
-import { Field } from "formik";
+import { ErrorMessage, Field } from "formik";
 import React from "react";
+import CountryInput from "./CountryInput";
 
 const CheckoutForm = () => {
   return (
@@ -25,6 +26,12 @@ const CheckoutForm = () => {
               type="text"
               className="border border-gray-300 py-3 px-4 rounded-lg focus:outline-clr-lighter-accent font-bold"
             />
+            <ErrorMessage
+              name="name"
+              render={(msg) => (
+                <span className="text-red-600 text-sm font-bold">{msg}</span>
+              )}
+            />
           </div>
 
           <div className="flex flex-col">
@@ -38,6 +45,12 @@ const CheckoutForm = () => {
               name="email"
               type="email"
               className="border border-gray-300 py-3 px-4 rounded-lg focus:outline-clr-lighter-accent font-bold"
+            />
+            <ErrorMessage
+              name="email"
+              render={(msg) => (
+                <span className="text-red-600 text-sm font-bold">{msg}</span>
+              )}
             />
           </div>
 
@@ -53,6 +66,12 @@ const CheckoutForm = () => {
               type="tel"
               className="border border-gray-300 py-3 px-4 rounded-lg focus:outline-clr-lighter-accent font-bold"
             />
+            <ErrorMessage
+              name="phone"
+              render={(msg) => (
+                <span className="text-red-600 text-sm font-bold">{msg}</span>
+              )}
+            />
           </div>
         </div>
 
@@ -60,6 +79,22 @@ const CheckoutForm = () => {
           <h5 className="text-clr-accent uppercase font-bold text-base">
             Shipping Info
           </h5>
+
+          <div className="flex flex-col">
+            <label htmlFor="country" className="mb-2 font-bold">
+              Country
+            </label>
+
+            <CountryInput />
+
+            <ErrorMessage
+              name="country"
+              render={(msg) => (
+                <span className="text-red-600 text-sm font-bold">{msg}</span>
+              )}
+            />
+          </div>
+
           <div className="flex flex-col">
             <label htmlFor="address" className="mb-2 font-bold">
               Your Address
@@ -71,6 +106,12 @@ const CheckoutForm = () => {
               name="address"
               type="text"
               className="border border-gray-300 py-3 px-4 rounded-lg focus:outline-clr-lighter-accent font-bold"
+            />
+            <ErrorMessage
+              name="address"
+              render={(msg) => (
+                <span className="text-red-600 text-sm font-bold">{msg}</span>
+              )}
             />
           </div>
 
@@ -86,33 +127,11 @@ const CheckoutForm = () => {
               type="number"
               className="border border-gray-300 py-3 px-4 rounded-lg focus:outline-clr-lighter-accent font-bold"
             />
-          </div>
-
-          <div className="flex flex-col">
-            <label htmlFor="country" className="mb-2 font-bold">
-              Country
-            </label>
-            <Field
-              autoComplete="country"
-              placeholder="United States"
-              id="country"
-              name="country"
-              type="country"
-              className="border border-gray-300 py-3 px-4 rounded-lg focus:outline-clr-lighter-accent font-bold"
-            />
-          </div>
-
-          <div className="flex flex-col">
-            <label htmlFor="city" className="mb-2 font-bold">
-              City
-            </label>
-            <Field
-              autoComplete="address-level2"
-              placeholder="New York"
-              id="city"
-              name="city"
-              type="text"
-              className="border border-gray-300 py-3 px-4 rounded-lg focus:outline-clr-lighter-accent font-bold"
+            <ErrorMessage
+              name="zip"
+              render={(msg) => (
+                <span className="text-red-600 text-sm font-bold">{msg}</span>
+              )}
             />
           </div>
         </div>
@@ -125,7 +144,7 @@ const CheckoutForm = () => {
             <p className="mb-2 font-bold">Payment Method:</p>
 
             <div className="w-2/3">
-              <label
+              {/* <label
                 htmlFor="e-money"
                 className="border border-gray-300 py-3 px-4 rounded-lg focus:outline-clr-lighter-accent font-bold flex gap-4 mb-4 cursor-pointer"
               >
@@ -135,8 +154,8 @@ const CheckoutForm = () => {
                   type="radio"
                   value="eMoney"
                 />
-                <span>e-Money</span>
-              </label>
+                <span>Pay online</span>
+              </label> */}
 
               <label
                 htmlFor="cod"
@@ -145,12 +164,19 @@ const CheckoutForm = () => {
                 <Field id="cod" name="paymentMethod" type="radio" value="cod" />
                 <span>Cash on Delivery</span>
               </label>
+
+              <ErrorMessage
+                name="paymentMethod"
+                render={(msg) => (
+                  <span className="text-red-600 text-sm font-bold">{msg}</span>
+                )}
+              />
             </div>
           </div>
 
-          <div className="flex flex-col">
+          {/* <div className="flex flex-col">
             <label htmlFor="em-num" className="mb-2 font-bold">
-              e-Money Number
+              Card Number
             </label>
             <Field
               autoComplete="off"
@@ -164,7 +190,7 @@ const CheckoutForm = () => {
 
           <div className="flex flex-col">
             <label htmlFor="em-pin" className="mb-2 font-bold">
-              e-Money PIN
+              PIN
             </label>
             <Field
               autoComplete="off"
@@ -174,7 +200,7 @@ const CheckoutForm = () => {
               type="number"
               className="border border-gray-300 py-3 px-4 rounded-lg focus:outline-clr-lighter-accent font-bold"
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

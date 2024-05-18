@@ -2,6 +2,7 @@
 import CheckoutForm from "@/components/checkout/CheckoutForm";
 import CheckoutSummary from "@/components/checkout/CheckoutSummary";
 import AppLayout from "@/layouts/AppLayout";
+import { checkoutSchema } from "@/utils/validation/auth";
 import { Form, Formik } from "formik";
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -19,16 +20,15 @@ const Page = () => {
     phone: "",
     address: "",
     zip: "",
-    city: "",
     country: "",
     paymentMethod: "",
-    eNum: "",
-    ePin: "",
+    // eNum: "",
+    // ePin: "",
   };
 
   const handleSubmit = (values: typeof initialValues) => {
     console.log(values);
-    router.push("/orders");
+    // router.push("/orders");
   };
 
   return (
@@ -42,7 +42,7 @@ const Page = () => {
         </button>
         <Formik
           initialValues={initialValues}
-          // validationSchema={registerSchema}
+          validationSchema={checkoutSchema}
           onSubmit={(values) => handleSubmit(values)}
         >
           <Form className="flex flex-col gap-8 xl:flex-row">
