@@ -6,5 +6,3 @@ const page = () => {
 };
 
 export default page;
-
-// #Nancylv9630

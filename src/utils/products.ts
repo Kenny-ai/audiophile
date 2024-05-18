@@ -7,5 +7,3 @@ export const getTotal = (cart: CartState[]) => {
   });
   return total;
 };
-
-//  mongoimport --uri 'mongodb+srv://kennybolu:mvemjsunp@audiophile.evyqgjw.mongodb.net/?retryWrites=true&w=majority&appName=audiophile' --collection=products --file=data.json --jsonArray
