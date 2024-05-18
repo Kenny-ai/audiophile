@@ -35,7 +35,7 @@ const AppLayout = ({ children }: Props) => {
       </Modal>
 
       <Header />
-      <main>{children}</main>
+      <main className="min-h-[34.5rem]">{children}</main>
       <Footer />
     </div>
   );
