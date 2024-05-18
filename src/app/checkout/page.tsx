@@ -2,7 +2,7 @@
 import CheckoutForm from "@/components/checkout/CheckoutForm";
 import CheckoutSummary from "@/components/checkout/CheckoutSummary";
 import AppLayout from "@/layouts/AppLayout";
-import { checkoutSchema } from "@/utils/validation/auth";
+import { checkoutSchema } from "@/utils/validation/checkout";
 import { Form, Formik } from "formik";
 import { useRouter } from "next/navigation";
 import React from "react";
