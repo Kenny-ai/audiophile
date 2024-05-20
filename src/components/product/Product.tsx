@@ -59,11 +59,11 @@ const Product = ({ product }: Props) => {
   const addItemToCart = () => {
     if (containsObject(cartItem, cart)) {
       dispatch(incrementQuantity({ _id: cartItem._id, amount: quantity }));
+    } else {
+      dispatch(addToCart(cartItem));
       Notify("success", `${product.name} has been added to your cart.`, {
         position: "top-center",
       });
-    } else {
-      dispatch(addToCart(cartItem));
     }
   };
 
