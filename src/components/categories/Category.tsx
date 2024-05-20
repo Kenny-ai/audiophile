@@ -18,7 +18,7 @@ interface Props {
 const Category = ({ category }: Props) => {
   return (
     <Link
-      href={category.category}
+      href={`/${category.category}`}
       className="flex flex-col items-center category group"
     >
       <img
